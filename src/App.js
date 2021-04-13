@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './App.css';
 import Todos from "./components/Todos/Todos"
+import classes from "./App.css"
 
 function App() {
+  const [remaining, setRemaining] = useState(0);
   const [todos, setTodos] = useState(DATA);
+  useEffect(() => {
+    setRemaining(todos.filter(f => f.isCompleted).length)
+  }, [todos])
 
   const addTodo = (text) => setTodos([...todos, { text }]);
-  
+
   const removeTodo = (index) => {
     const newTodos = [...todos];
-    newTodos.splice(index,1);
+    newTodos.splice(index, 1);
     setTodos(newTodos);
   }
 
@@ -21,7 +26,9 @@ function App() {
   }
   return (
     <div className="App">
+
       <Todos
+        remaining={remaining}
         todos={todos}
         completeTodo={completeTodo}
         removeTodo={removeTodo}

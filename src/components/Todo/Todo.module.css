@@ -1,6 +1,6 @@
 .todo {
     align-items: center;
-    background: #fff;
+    background: transparent;
     border-radius: 5px;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
     display: flex;
@@ -8,8 +8,32 @@
     justify-content: space-between;
     margin-bottom: 6px;
     padding: 6px 10px;
-  }
+    border: 1px solid white;
+}
 
-  .todo.completed{
-      text-decoration: line-through;
-  }
+.todo.completed {
+    text-decoration: line-through;
+}
+
+.todo button {
+    background: rgb(12, 124, 251);
+    border-radius: 2px;
+    margin: 0px 2px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    float: right;
+}
+
+button:hover {
+    border: 1px solid rgb(12, 95, 250);
+    background-color: rgb(12, 95, 250);
+    color: #ffffff;
+}
+
+button:disabled, button[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    cursor: none;
+}

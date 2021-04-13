@@ -5,7 +5,10 @@ import classes from './Todos.module.css';
 
 const Todos = (props) => {
     return (
-        <div>
+        <div className={classes.container}>
+            <div className={classes.header}>
+                TODO LIST ({props.remaining}/{props.todos.length}))
+            </div>
             <div className={classes['todo-list']}>
                 {props.todos.map((t, i) => {
                     return <Todo todo={t}
