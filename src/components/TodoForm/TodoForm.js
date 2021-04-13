@@ -1,11 +1,8 @@
-import React, { lazy, useState } from 'react'
-
+import React, { useState } from 'react'
+import classes from './TodoForm.module.css'
 
 const TodoForm = (props) => {
     const [value, setValue] = useState("");
-    function onChange(e) {
-        setValue(e.target.value);
-    }
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -16,7 +13,9 @@ const TodoForm = (props) => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input type='text'
+                <input
+                    className={classes['todo-input']}
+                    type='text'
                     value={value}
                     onChange={e => setValue(e.target.value)}
                 />

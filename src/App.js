@@ -4,8 +4,17 @@ import Todos from "./components/Todos/Todos"
 
 function App() {
   const [todos, setTodos] = useState(DATA);
+
   const addTodo = (text) => setTodos([...todos, { text }]);
+  
+  const removeTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos.splice(index,1);
+    setTodos(newTodos);
+  }
+
   const completeTodo = (index) => {
+    console.log('complete todo with ' + index);
     const newTodos = [...todos];
     newTodos[index].isCompleted = true;
     setTodos(newTodos);
@@ -15,6 +24,7 @@ function App() {
       <Todos
         todos={todos}
         completeTodo={completeTodo}
+        removeTodo={removeTodo}
         addTodo={addTodo} />
     </div>
   );
